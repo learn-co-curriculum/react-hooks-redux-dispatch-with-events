@@ -51,7 +51,7 @@ function changeState(state, action){
 Ok copy this into the `reducer.js` file.  Now let's get some feedback that we did this correctly by opening up our index.html file in chrome.  From your terminal type open `index.html`.  Now this index file has a link to the `reducer.js` file, so your code will be accessible from the console - press command+shift+c to open it up.  Now let's test the code by calling
 
 ```javascript
-reducer({count: 0}, {type: 'INCREASE_COUNT'});
+changeState({count: 0}, {type: 'INCREASE_COUNT'});
 ```
 
 If you see a return value of `{count: 1}` then give yourself a big smile. :)
