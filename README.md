@@ -72,9 +72,9 @@ function dispatch(action){
 }
 ```
 
- Now let's see if this reassigns state. Open up the index.html file in the browser and call `dispatch({type: 'INCREASE_COUNT'})`. Now let's type in state and see if was changed. State should return `{count: 1}`. Hurray! More smiles. :) :)
+ Now let's see if this reassigns state. Open up the index.html file in the browser and call `dispatch({type: 'INCREASE_COUNT'})`. Now let's type in state and see if was changed. State should return `{count: 1}`. Hooray! More smiles. :) :)
 
-Next problem. Our state says the count is 1, but do you think that is reflected in our html? Me neither. Ok, so what function is in charge of that. Give it a shot. I'll be waiting with the answer when you're ready.
+Next problem. Our state says the count is 1, but do you think that is reflected in our HTML? Me neither. Ok, so what function is in charge of that. Give it a shot. I'll be waiting with the answer when you're ready.
 
 ### 3. Use the render function to display our state.
 
@@ -86,7 +86,7 @@ function render(){
 	container.textContent = state.count;
 }
 ```
-So now when we call `render()` from the console we should see html that reflects the current count.
+So now when we call `render()` from the console we should see HTML that reflects the current count.
 
 Next step is to tie this re-rendering with the dispatch function. Easy enough. Let's alter our dispatch method so that it looks like this:
 
@@ -96,11 +96,11 @@ function dispatch(action){
 	render();
 }
 ```
-Ok, so now each time we dispatch an action we should have to update our html because the `render` function is also called. Now for a little refactoring. Let's have only our initial state set in the reducer. We do that by setting our initial state as a default argument to our `changeState` reducer. Go ahead and tackle it. We'll show the code below.
+Ok, so now each time we dispatch an action we should have to update our HTML because the `render` function is also called. Now for a little refactoring. Let's have only our initial state set in the reducer. We do that by setting our initial state as a default argument to our `changeState` reducer. Go ahead and tackle it. We'll show the code below.
 
 ### 4. Use a default argument in the reducer to set the initial state.
 
-Now our changeState function should look like the following.
+Now our `changeState` function should look like the following.
 
 ```javascript
 // let state = {count: 0}
@@ -128,7 +128,7 @@ function changeState(state = {count: 0}, action){
 }
 ```
 
-Call `dispatch({type: 'INCREASE_COUNT'})` again, and we get no error.  Instead we get a beautiful piece of html code that says the number 1 on it. Now, if instead we want to show the number zero, our default state, well we can just refresh our page, and then dispatch an action that returns the default state like so: `dispatch(type: '@@INIT')`. This does not increase our state, but it does return our default state and then call render.
+Call `dispatch({type: 'INCREASE_COUNT'})` again, and we get no error.  Instead we get a beautiful piece of HTML code that says the number 1 on it. Now, if instead we want to show the number zero, our default state, well we can just refresh our page, and then dispatch an action that returns the default state like so: `dispatch(type: '@@INIT')`. This does not increase our state, but it does return our default state and then call render.
 
 This is what we want to do each time we open our page. So let's add `dispatch({type: '@@INIT'})` at the end of our JavaScript file. This is where we left off previously. Our almost completed code should look like the following.
 
@@ -160,7 +160,7 @@ Looks good. But we're going further today. We need to make sure every time the u
 
 ### 5. Integrating dispatch with a user event
 
-So `dispatch` is responsible for updating the state and re-rendering. And we want an action to be dispatched each time a user clicks. So let's attach `dispatch` execution to a click event. It may have been a while since you attached an event handler function without jQuery.  Since 1- we will eventually be hooking this up with React, and 2- this project is so small, there's definitely no need to load in jQuery here. Here's refresher on how things work without jQuery: [Events without Jquery](http://blog.garstasio.com/you-dont-need-jquery/events/)
+So `dispatch` is responsible for updating the state and re-rendering. And we want an action to be dispatched each time a user clicks. So let's attach `dispatch` execution to a click event. It may have been a while since you attached an event handler function without jQuery.  Since 1- we will eventually be hooking this up with React, and 2- this project is so small, there's definitely no need to load in jQuery here. Here's a refresher on how things work without jQuery: [Events without Jquery](http://blog.garstasio.com/you-dont-need-jquery/events/)
 
 ```javascript
 let button = document.document.getElementById('button');
