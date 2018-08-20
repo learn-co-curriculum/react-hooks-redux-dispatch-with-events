@@ -196,7 +196,8 @@ function dispatch(action){
 }
 
 function render(){
-  document.setInnerHtml = state.count
+  let container = document.getElementById('container');
+  container.textContent = state.count;
 }
 
 dispatch({type: '@@INIT'})
