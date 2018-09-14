@@ -210,12 +210,9 @@ user clicks on a button, we dispatch an action.  How do you think we do that.
 
 So `dispatch` is responsible for updating the state and re-rendering.  And we
 want an action to be dispatched each time a user clicks.  So let's attach
-`dispatch` execution to a click event.  It may have been a while since you
-attached an event handler function without jQuery.  Since 1- we will eventually
-be hooking this up with React, and 2- this project is so small, there's
-definitely no need to load in jQuery here.  Here's refresher on how things work
-without jQuery: [Events without
-Jquery](http://blog.garstasio.com/you-dont-need-jquery/events/)
+`dispatch` execution to a click event.
+
+We'll be writing a "vanilla" JavaScript event listener.
 
 ```javascript
 let button = document.getElementById('button');
