@@ -4,7 +4,8 @@
 
 In this lesson, you will learn the following:
 
-* How to allow a user to execute the dispatch function by attaching dispatch to event listeners.
+* How to allow a user to execute the dispatch function by attaching dispatch to
+  event listeners.
 * The redux flow.
 
 ## Application Goal
@@ -57,11 +58,12 @@ function reducer(state, action){
 }
 ```
 
-Ok copy this into the `reducer.js` file.  Now let's get some feedback that we
-did this correctly by opening up our `index.html` file in chrome.  From your
-terminal type open `index.html`.  Now this index file has a link to the
-`reducer.js` file, so your code will be accessible from the console - press
-command+shift+c to open it up.  Now let's test the code by calling
+Ok copy this into the `reducer.js` file inside the `js` folder.  Now let's get
+some feedback that we did this correctly by opening up our `index.html` file in
+chrome.  From your terminal type open `index.html`.  Now this index file has a
+link to the `reducer.js` file, so your code will be accessible from the console
+- press command+shift+c to open it up.  Now let's test the code by calling the
+  `reducer()` function:
 
 ```javascript
 reducer({count: 0}, {type: 'INCREASE_COUNT'});
@@ -85,7 +87,7 @@ It access the state because it is declared earlier in the file in global scope.
 
 ```javascript
 function dispatch(action){
-	state = reducer(state, action);
+  state = reducer(state, action);
 }
 ```
 
@@ -105,8 +107,8 @@ Ok, so now we need a function called render that will place this count on the pa
 
 ```javascript
 function render(){
-	let container = document.getElementById('container');
-	container.textContent = state.count;
+  let container = document.getElementById('container');
+  container.textContent = state.count;
 }
 ```
 
@@ -120,8 +122,8 @@ like this:
 
 ```javascript
 function dispatch(action){
-	state = reducer(state, action);
-	render();
+  state = reducer(state, action);
+  render();
 }
 ```
 
@@ -143,7 +145,7 @@ function reducer(state = {count: 0}, action){
       return {count: state.count + 1}
     default:
       return state;
-	}
+  }
 }
 ```
 
@@ -218,7 +220,7 @@ We'll be writing a "vanilla" JavaScript event listener.
 let button = document.getElementById('button');
 
 button.addEventListener('click', function(){
-	dispatch({type: 'INCREASE_COUNT'})
+  dispatch({type: 'INCREASE_COUNT'})
 })
 ```
 
