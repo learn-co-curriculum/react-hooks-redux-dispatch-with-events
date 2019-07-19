@@ -83,7 +83,7 @@ Thinking...
 
 Ok, so we can reassign the state by adding the dispatch function to our
 `reducer.js` file.  This dispatch function should receive an argument of action.
-It access the state because it is declared earlier in the file in global scope.  
+It can access the state because it is declared earlier in the file in global scope.  
 
 ```javascript
 function dispatch(action){
@@ -172,7 +172,7 @@ Call `dispatch({type: 'INCREASE_COUNT'})` again, and we get no error.  Instead
 we get a beautiful piece of HTML code that says the number 1 on it.  Now, if
 instead we want to show the number zero, our default state, well we can just
 refresh our page, and then dispatch an action that returns the default state
-like so: `dispatch(type: '@@INIT')`.  This does not increase our state, but it
+like so: `dispatch({type: '@@init'})`.  This does not increase our state, but it
 does return our default state and then call render.
 
 This is what we want to do each time we open our page.  So let's add
