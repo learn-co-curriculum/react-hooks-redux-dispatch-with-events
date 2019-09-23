@@ -12,8 +12,8 @@ In this lesson, you will learn the following:
 
 We have built out most of the redux pattern.  Don't worry, we'll review it.
 
-For now, let's talk about what we want as a user experience.  Here it is: you
-click on a button, and you see a number on the page go to zero to one.  Click
+For now, let's talk about what we want as a user experience.  Here it is: you click 
+on a button, and you see a number on the page go from zero to one.  Click
 again, and you see the number go from one to two.  I can see a couple of steps
 involved in this.
 
