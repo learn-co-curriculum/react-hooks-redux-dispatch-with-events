@@ -219,7 +219,7 @@ We'll be writing a "vanilla" JavaScript event listener.
 ```javascript
 let button = document.getElementById('button');
 
-button.addEventListener('click', function(){
+button.addEventListener('click', () => {
   dispatch({type: 'INCREASE_COUNT'})
 })
 ```
