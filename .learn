@@ -1,3 +1,5 @@
-langauges:
+tags:
+  - redux
+languages:
   - javascript
-  - react
+resources: 0
