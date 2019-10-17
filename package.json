@@ -1,0 +1,19 @@
+{
+  "name": "redux-dispatch-with-event-listeners",
+  "version": "0.1.0",
+  "description": "Use event listeners to dispatch actions",
+  "main": "index.js",
+  "scripts": {
+    "start": "open index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/learn-co-curriculum/redux-dispatch-with-event-listeners.git"
+  },
+  "author": "The Flatiron School",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/learn-co-curriculum/redux-dispatch-with-event-listeners/issues"
+  },
+  "homepage": "https://github.com/learn-co-curriculum/redux-dispatch-with-event-listeners#readme"  
+}
