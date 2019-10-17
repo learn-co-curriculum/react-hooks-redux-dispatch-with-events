@@ -12,9 +12,9 @@ In this lesson, you will learn the following:
 
 We have built out most of the redux pattern.  Don't worry, we'll review it.
 
-For now, let's talk about what we want as a user experience.  Here it is: you click 
-on a button, and you see a number on the page go from zero to one.  Click
-again, and you see the number go from one to two.  I can see a couple of steps
+For now, let's talk about what we want as a user experience.  Here it is: you
+click on a button, and you see a number on the page go from zero to one.  Click
+again, and you see the number go from one to two.  We can see a couple of steps
 involved in this.
 
 1. Clicking on the button should change the state.  
@@ -224,9 +224,43 @@ button.addEventListener('click', () => {
 })
 ```
 
+Copy this and the previous snippet into
+
 Now every time we click, we dispatch an action of type increase.  Dispatch first
 calls our reducer, which updates our state.  Then dispatch renders the updated
 view.
+
+Putting everything together, our code should look like this:
+
+```js
+let state;
+function reducer(state = {count: 0}, action){
+  switch (action.type) {
+    case 'INCREASE_COUNT':
+      return {count: state.count + 1}
+    default:
+      return state;
+  }
+}
+
+function dispatch(action){
+  state = reducer(state, action);
+  render();
+}
+
+function render(){
+  let container = document.getElementById('container');
+  container.textContent = state.count;
+}
+
+dispatch({type: '@@INIT'})
+
+let button = document.getElementById('button');
+
+button.addEventListener('click', () => {
+  dispatch({type: 'INCREASE_COUNT'})
+})
+```
 
 Click the button.  Our application is done!
 
