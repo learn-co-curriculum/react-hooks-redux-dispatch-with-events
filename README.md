@@ -8,6 +8,9 @@ In this lesson, you will learn the following:
   event listeners.
 * The redux flow.
 
+Use `js/reducer.js` to follow along. The file is already set up in `index.html`,
+so if you run `open index.html`, any code in `js/reducer.js` will execute.
+
 ## Application Goal
 
 We have built out most of the redux pattern.  Don't worry, we'll review it.
