@@ -227,8 +227,6 @@ button.addEventListener('click', () => {
 })
 ```
 
-Copy this and the previous snippet into
-
 Now every time we click, we dispatch an action of type increase.  Dispatch first
 calls our reducer, which updates our state.  Then dispatch renders the updated
 view.
