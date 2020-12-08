@@ -1,5 +1,5 @@
 {
-  "name": "redux-dispatch-with-event-listeners",
+  "name": "react-hooks-redux-dispatch-with-events",
   "version": "0.1.0",
   "description": "Use event listeners to dispatch actions",
   "main": "index.js",
@@ -15,5 +15,5 @@
   "bugs": {
     "url": "https://github.com/learn-co-curriculum/redux-dispatch-with-event-listeners/issues"
   },
-  "homepage": "https://github.com/learn-co-curriculum/redux-dispatch-with-event-listeners#readme"  
+  "homepage": "https://github.com/learn-co-curriculum/redux-dispatch-with-event-listeners#readme"
 }
