@@ -28,7 +28,9 @@ involved in this.
 By now, you've learned a lot about redux, but the basic story about it has not
 changed:
 
-`Action -> Reducer -> New State`
+```txt
+Action -> Reducer -> New State
+```
 
 For example, to increase our state we call `dispatch({type: 'counter/increment'})`.
 Our dispatch function calls our reducer which updates state, and then we render
