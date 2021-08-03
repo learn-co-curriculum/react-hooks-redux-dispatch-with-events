@@ -43,9 +43,11 @@ having a default argument in our reducer, we can set up our initial state.
 
 Let's code out this our counter application from scratch.
 
-#### 1. Start by remembering our core fact about how redux works.
+### 1. Start by remembering our core fact about how Redux works
 
-`action -> reducer -> new state`
+```txt
+action -> reducer -> new state
+```
 
 Ok, let's translate that into code. This means if we pass an action and a
 previous state to our reducer, the reducer should return the new state.
@@ -85,7 +87,7 @@ Thinking...
 
 Thinking...
 
-#### 2. Wrap the execution of our reducer in a function that we call dispatch
+### 2. Wrap the execution of our reducer in a function that we call dispatch
 
 Ok, so we can reassign the state by adding the dispatch function to our
 `reducer.js` file. This dispatch function should receive an argument of action.
@@ -108,7 +110,7 @@ Next problem. Our state says the count is 1, but do you think that is
 reflected in our HTML? Me neither. Ok, so what function is in charge of that.
 Give it a shot. I'll be waiting with the answer when you're ready.
 
-#### 3. Use the render function to display our state.
+### 3. Use the render function to display our state
 
 Ok, so now we need a function called render that will place this count on the page.
 
@@ -140,7 +142,7 @@ Let's have only our initial state set in the reducer. We do that by setting our
 initial state as a default argument to our `reducer` reducer. Go ahead and
 tackle it. We'll show the code below.
 
-#### 4. Use a default argument in the reducer to set the initial state.
+### 4. Use a default argument in the reducer to set the initial state
 
 Now our `reducer()` function should look like the following:
 
@@ -215,7 +217,7 @@ dispatch({ type: "@@INIT" });
 Looks good. But we're going further today. We need to make sure every time the
 user clicks on a button, we dispatch an action. How do you think we do that.
 
-#### 5. Integrating dispatch with a user event
+### 5. Integrating dispatch with a user event
 
 So `dispatch` is responsible for updating the state and re-rendering. And we
 want an action to be dispatched each time a user clicks. So let's attach
