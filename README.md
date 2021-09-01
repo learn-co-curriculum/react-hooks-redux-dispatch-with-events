@@ -1,12 +1,10 @@
 # Completing our Counter Application
 
-## Objectives
+## Learning Goals
 
-In this lesson, you will learn the following:
+- Dispatch an action in response to a user event
 
-- How to allow a user to execute the dispatch function by attaching dispatch to
-  event listeners.
-- The Redux flow.
+## Instructions
 
 Use `src/reducer.js` to follow along. The file is already set up in `index.html`,
 so if you run `open index.html`, any code in `src/reducer.js` will execute.
@@ -49,7 +47,7 @@ Let's code out this our counter application from scratch.
 action -> reducer -> new state
 ```
 
-Ok, let's translate that into code. This means if we pass an action and a
+Let's translate that into code. This means if we pass an action and a
 previous state to our reducer, the reducer should return the new state.
 
 ```javascript
@@ -65,7 +63,7 @@ function reducer(state, action) {
 }
 ```
 
-Ok copy this into the `reducer.js` file inside the `js` folder. Now let's get
+Copy this into the `reducer.js` file inside the `js` folder. Now let's get
 some feedback that we did this correctly by opening up our `index.html` file in
 chrome. From your terminal type open `index.html`. Now this index file has a
 link to the `reducer.js` file, so your code will be accessible from the console
@@ -79,7 +77,7 @@ reducer({ count: 0 }, { type: "counter/increment" });
 
 If you see a return value of `{count: 1}` then give yourself a big smile. :)
 
-Ok, if we type in state, we see that it's unchanged. We need to assign our
+If we type in state, we see that it's unchanged. We need to assign our
 state to be the return value of our reducer each time that we call the reducer.
 So how do we do that? Think hard, there's no rush.
 
@@ -89,7 +87,7 @@ Thinking...
 
 ### 2. Wrap the execution of our reducer in a function that we call dispatch
 
-Ok, so we can reassign the state by adding the dispatch function to our
+We can reassign the state by adding the dispatch function to our
 `reducer.js` file. This dispatch function should receive an argument of action.
 It can access the state because it is declared earlier in the file in global scope.
 
@@ -112,7 +110,7 @@ Give it a shot. I'll be waiting with the answer when you're ready.
 
 ### 3. Use the render function to display our state
 
-Ok, so now we need a function called render that will place this count on the page.
+We need a function called render that will place this count on the page.
 
 ```javascript
 function render() {
@@ -136,7 +134,7 @@ function dispatch(action) {
 }
 ```
 
-Ok, so now each time we dispatch an action we should have to update our HTML
+Each time we dispatch an action, we have to update our HTML
 because the `render` function is also called. Now for a little refactoring.
 Let's have only our initial state set in the reducer. We do that by setting our
 initial state as a default argument to our `reducer` reducer. Go ahead and
