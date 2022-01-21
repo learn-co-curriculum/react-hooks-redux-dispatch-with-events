@@ -6,8 +6,9 @@
 
 ## Instructions
 
-Use `src/reducer.js` to follow along. The file is already set up in `index.html`,
-so if you run `open index.html`, any code in `src/reducer.js` will execute.
+Use `src/reducer.js` to follow along. The file is already set up in
+`index.html`, so if you run `open index.html`, any code in `src/reducer.js` will
+execute.
 
 ## Application Goal
 
@@ -23,16 +24,16 @@ involved in this.
 
 ## Brief Redux Review
 
-By now, you've learned a lot about redux, but the basic story about it has not
+By now, you've learned a lot about Redux, but the basic story about it has not
 changed:
 
 ```txt
 Action -> Reducer -> New State
 ```
 
-For example, to increase our state we call `dispatch({type: 'counter/increment'})`.
-Our dispatch function calls our reducer which updates state, and then we render
-that view on the page.
+For example, to increase our state we call
+`dispatch({type: 'counter/increment'})`. Our dispatch function calls our reducer
+which updates state, and then we render that view on the page.
 
 In the previous section, we learned that by dispatching an initial action and
 having a default argument in our reducer, we can set up our initial state.
@@ -47,8 +48,8 @@ Let's code out this our counter application from scratch.
 action -> reducer -> new state
 ```
 
-Let's translate that into code. This means if we pass an action and a
-previous state to our reducer, the reducer should return the new state.
+Let's translate that into code. This means if we pass an action and a previous
+state to our reducer, the reducer should return the new state.
 
 ```javascript
 let state = { count: 0 };
@@ -63,33 +64,33 @@ function reducer(state, action) {
 }
 ```
 
-Copy this into the `reducer.js` file inside the `js` folder. Now let's get
-some feedback that we did this correctly by opening up our `index.html` file in
-chrome. From your terminal type open `index.html`. Now this index file has a
-link to the `reducer.js` file, so your code will be accessible from the console
+Copy this into the `src/reducer.js` file. Now let's get some feedback that we
+did this correctly by opening up our `index.html` file in the browser. This file
+has a link to the `reducer.js` file, so your code will be accessible from the
+browser console.
 
-- press command+shift+c to open it up. Now let's test the code by calling the
-  `reducer()` function:
+In the browser console, test the reducer function:
 
 ```javascript
 reducer({ count: 0 }, { type: "counter/increment" });
 ```
 
-If you see a return value of `{count: 1}` then give yourself a big smile. :)
+If you see a return value of `{count: 1}` then give yourself a big smile.
 
-If we type in state, we see that it's unchanged. We need to assign our
-state to be the return value of our reducer each time that we call the reducer.
-So how do we do that? Think hard, there's no rush.
-
-Thinking...
+If we type in `state`, we see that it's unchanged. We need to assign our state
+to be the return value of our reducer each time that we call the reducer. So how
+do we do that? Think hard, there's no rush.
 
 Thinking...
 
-### 2. Wrap the execution of our reducer in a function that we call dispatch
+Thinking...
 
-We can reassign the state by adding the dispatch function to our
-`reducer.js` file. This dispatch function should receive an argument of action.
-It can access the state because it is declared earlier in the file in global scope.
+### 2. Write a Dispatch Function
+
+We can preserve the value of state by adding a `dispatch` function to our
+`reducer.js` file. This `dispatch` function should receive an argument of
+`action`. It can access the state because it is declared earlier in the file in
+global scope.
 
 ```javascript
 function dispatch(action) {
@@ -97,31 +98,31 @@ function dispatch(action) {
 }
 ```
 
-Now let's see if this reassigns state. Add this `dispatch` function in and open
-or refresh the `index.html` file in a browser tab. Call
+Now let's see if this reassigns `state`. Add this `dispatch` function in and
+open or refresh the `index.html` file in the browser. Call
 `dispatch({type: 'counter/increment'})`. It should return `undefined`, since
 `dispatch()` doesn't return anything, but our `state` value should have changed!
 Type in `state` and see if this is true. State should return `{count: 1}`.
-Hurray! More smiles. :) :)
+Hurray!
 
-Next problem. Our state says the count is 1, but do you think that is
-reflected in our HTML? Me neither. Ok, so what function is in charge of that.
-Give it a shot. I'll be waiting with the answer when you're ready.
+Next problem. Our state says the count is 1, but do you think that is reflected
+in our HTML? Me neither. Ok, so what function is in charge of that. Give it a
+shot. I'll be waiting with the answer when you're ready.
 
-### 3. Use the render function to display our state
+### 3. Write a Render Function
 
-We need a function called render that will place this count on the page.
+We need a function called render that will place this count on the page:
 
 ```javascript
 function render() {
-  let container = document.getElementById("container");
+  const container = document.getElementById("container");
   container.textContent = state.count;
 }
 ```
 
-So now when we call `render` from the console we should see HTML that reflects
-the current count. Entering `dispatch({type: 'counter/increment'})` to change
-state, then `render` again should update the number displayed.
+When we call `render` from the console, we should see HTML that reflects the
+current count. Entering `dispatch({type: 'counter/increment'})` to change state,
+then `render` again should update the number displayed.
 
 Since the two functions go together, the next step is to tie rendering with the
 dispatch function. Easy enough. Let's alter our dispatch method so that it looks
@@ -134,13 +135,13 @@ function dispatch(action) {
 }
 ```
 
-Each time we dispatch an action, we have to update our HTML
-because the `render` function is also called. Now for a little refactoring.
-Let's have only our initial state set in the reducer. We do that by setting our
-initial state as a default argument to our `reducer` reducer. Go ahead and
-tackle it. We'll show the code below.
+Each time we dispatch an action, we have to update our HTML because the `render`
+function is also called. Now for a little refactoring. Let's have only our
+initial state set in the reducer. We do that by setting our initial state as a
+default argument to our `reducer` reducer. Go ahead and tackle it. We'll show
+the code below.
 
-### 4. Use a default argument in the reducer to set the initial state
+### 4. Set the Initial State
 
 Now our `reducer()` function should look like the following:
 
@@ -183,9 +184,8 @@ like so: `dispatch({type: '@@init'})`. This does not increase our state, but it
 does return our default state and then call render.
 
 This is what we want to do each time we open our page. So let's add
-`dispatch({type: '@@INIT'})` at the end of our javascript file. This is where
-we left off previously. Our almost completed code should look like the
-following.
+`dispatch({type: '@@INIT'})` at the end of our javascript file. This is where we
+left off previously. Our almost completed code should look like the following.
 
 ```javascript
 let state;
@@ -205,7 +205,7 @@ function dispatch(action) {
 }
 
 function render() {
-  let container = document.getElementById("container");
+  const container = document.getElementById("container");
   container.textContent = state.count;
 }
 
@@ -224,7 +224,7 @@ want an action to be dispatched each time a user clicks. So let's attach
 We'll be writing a "vanilla" JavaScript event listener.
 
 ```javascript
-let button = document.getElementById("button");
+const button = document.getElementById("button");
 
 button.addEventListener("click", () => {
   dispatch({ type: "counter/increment" });
@@ -254,13 +254,13 @@ function dispatch(action) {
 }
 
 function render() {
-  let container = document.getElementById("container");
+  const container = document.getElementById("container");
   container.textContent = state.count;
 }
 
 dispatch({ type: "@@INIT" });
 
-let button = document.getElementById("button");
+const button = document.getElementById("button");
 
 button.addEventListener("click", () => {
   dispatch({ type: "counter/increment" });
@@ -269,11 +269,9 @@ button.addEventListener("click", () => {
 
 Click the button. Our application is done!
 
-## Summary
+## Conclusion
 
-Oh yea! Not much new here. But that didn't stop the dopamine hit. We saw that by
-thinking about redux from the perspective of `action -> reducer -> new state`,
-we are able to get going. Then it's just a matter of tackling each problem.
-
-As for new information, we saw that we can get the user to call the `dispatch`
-method, by executing `dispatch` from inside the callback of an event handler.
+We saw that by thinking about redux from the perspective of
+`action -> reducer -> new state`, we are able to get going. Then it's just a
+matter of tackling each problem as we built out the functionality of the
+application by following Redux patterns.
